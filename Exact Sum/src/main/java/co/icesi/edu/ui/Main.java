@@ -8,23 +8,20 @@ import java.util.Scanner;
 public class Main{
     public static void main(String[] args)throws Exception {
         BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
-        String line = read.readLine();
-        while (line!=null && !line.equals("")) {
+        String line;
+        while ((line = read.readLine()) != null && !line.equals("")) {
             int n = Integer.parseInt(line);
             int[] books = new int[n];
-            String bookesS[] = read.readLine().split(" ");
+            String[] bookesS = read.readLine().split(" ");
             for (int i = 0; i < n; i++) {
                 books[i] = Integer.parseInt(bookesS[i]);
             }
-            String m = read.readLine();
-            int money = Integer.parseInt(m);
+            int money = Integer.parseInt(read.readLine());
 
             int[] result = findBooks(books, money);
 
             System.out.println("Peter should buy books whose prices are " + result[0] + " and " + result[1] + ".");
             System.out.println();
-            read.readLine();
-            line = read.readLine();
         }
         read.close();
     }
@@ -49,6 +46,7 @@ public class Main{
         }
         return result;
     }
+
 
 //    private static void sortBooksByPrice(int[] books) {
 //        for (int i = 0; i < books.length - 1; i++) {
